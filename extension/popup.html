@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Canvas Assistant</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="CanvasAssistantLogo.png" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="static/css/mdb.min.css" />
+    <script src="bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <style>
+        
+        #applecal {
+            height: 30px;
+        }
+        #googlecal {
+            height: 30px;
+        }
+                
+        #progress {
+            transition: 0.1s ease-in;
+        }
+
+        #submitbutton1 .tooltip-inner {
+            background-color: rgb(83, 83, 83);
+            color: rgb(252, 252, 252);
+        }
+
+        body {
+            height: 600px;
+            width: 500px;
+        }
+
+        .alert {
+            height:50px;
+            padding: 0px 20px;
+            line-height:50px;
+        }
+        .btn-close {
+            width: 0em;
+  height: 0em;
+  padding: 0em 0em;
+
+        }
+
+        input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #78E0DC;
+    margin-top: -4px;
+}
+
+#calendaricon {
+    color: white;
+}
+#clipboardicon {
+    color: white;
+}
+#friendsicon {
+    color: white;
+}
+
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+        
+
+body {
+    font-family: 'Nunito';
+}
+
+        </style>
+        
+
+
+
+  </head>
+  <body>
+    <!-- Start your project here-->
+    
+    
+<script src="popup.js"></script>
+          
+<nav class="navbar navbar-light" style="background-color: #eaf1f1;">
+    <!-- eaf0f5 -->
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+          src="CanvasAssistantNavbar.png"
+          class="me-2"
+          height="40"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+        <small></small>
+      </a>
+      <form id="twittershare" action="https://twitter.com/intent/tweet?text=Check%20out%20Canvas%20Helper!" method="get" target="_blank">
+        <button class="btn btn-primary" style="background-color: #55acee;" role="submit">
+            <i class="fab fa-twitter"></i>
+        </button>
+                        </form>
+      </div>
+  </nav>
+  
+
+<div id="alertgoeshere"></div>
+      
+<!-- <form action="http://127.0.0.1:5000/" method="post">  --> 
+      
+        <div class="row mt-3">
+            
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="row"><strong>Canvas Information</strong></div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+
+
+      <div class="row mt-2">
+          <div class="col-1"></div>
+          <div class="col-10">
+              <select name="university" id="university" class="form-select">
+                  <option selected disabled>Select Your School</option>
+                  <option value="Boston College">Boston College</option>
+                  <option value="Brown University">Brown University</option>
+                  <option value="Carnegie Mellon University">Carnegie Mellon University</option>
+                  <option value="Columbia University">Columbia University</option>
+                  <option value="Cornell University">Cornell University</option>
+                  <option value="Dartmouth University">Dartmouth University</option>
+                  <option value="Emory University">Emory University</option>
+                  <option value="Georgetown University">Georgetown University</option>
+                  <option value="Harvard University">Harvard University</option>
+                  <option value="Northeastern University">Northeastern University</option>
+                  <option value="Northwestern University">Northwestern University</option>
+                  <option value="Ohio State University">Ohio State University</option>
+                  <option value="Santa Clara University">Santa Clara University</option>
+                  <option value="Southern Methodist University">Southern Methodist University</option>
+                  <option value="Stanford University">Stanford University</option>
+                  <option value="University of California, Berkeley">University of California, Berkeley</option>
+                  <option value="University of California, Davis">University of California, Davis</option>
+                  <option value="University of California, Irvine">University of California, Irvine</option>
+                  <option value="University of California, Los Angeles">University of California, Los Angeles</option>
+                  <option value="University of Chicago">University of Chicago</option>
+                  <option value="University of Illinois at Urbana-Champaign">University of Illinois at Urbana-Champaign</option>
+                  <option value="University of Michigan">University of Michigan</option>
+                  <option value="University of Wisconsin-Madison">University of Wisconsin-Madison</option>
+                  <option value="Washington University in St. Louis">Washington University in St. Louis</option>
+                  <option value="Yale University">Yale University</option>
+                </select>
+          </div>
+          <div class="col-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row"><small>Don't see your school? <a href="mailto: canvasassistantinfo@gmail.com" target="_blank">Send us an email.</a></small></div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+      
+      <div class="row mt-3">
+        <div class="col-1"></div>
+        <div class="col-10">
+          <div class="form-outline mb-1">
+            <i class="fas fa-exclamation-circle trailing"></i>
+              <input type="text" name="api" id="api" autocomplete="off" class="form-control form-icon-trailing" />
+              <label class="form-label" for="api">Enter Canvas API Key</label>
+            </div>
+                    </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row"><small>Having trouble finding your API key? <a href="https://canvashelper.pythonanywhere.com/" target="_blank">Click here.</a></small></div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <hr>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+
+    <div class="row">
+            
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row"><strong>Your Information</strong></div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+
+
+      <div class="row mt-2">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <select name="timezone" id="timezone" class="form-select">
+                <option selected disabled>Select Your Time Zone</option>
+                <option value="US/Eastern (ET)">US/Eastern (ET)</option>
+                <option value="US/Central (CT)">US/Central (CT)</option>
+                <option value="US/Pacific (PT)">US/Pacific (PT)</option>
+                <option value="Coordinated Universal Time (UTC)">Coordinated Universal Time (UTC)</option>
+              </select>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-1"></div>
+        <div class="col-10">
+
+            <label class="form-label" for="customRange2"><strong><font style="color:#4d4d4d;">Number of Classes Currently Enrolled In</font></strong></label>
+            <div class="range">
+              <input type="range" name="classrange" id="classrange" class="form-range" step="1" min="2" max="6" id="customRange2" />
+            </div>
+     
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+
+      <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+              <hr>
+          </div>
+          <div class="col-1"></div>
+      </div>
+
+      <div class="row" id="buttonouterrow">
+        <div class="col-1"></div>
+
+        <div class="col-10">
+
+          <div class="row" id="buttonsrow">
+
+            <div class="col-4">
+                <div class="row">
+                    <p class='text-center'><strong>Calendar (.ics)</strong></p>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col text-center">
+                            <button type="submit" id="submitbutton1" name="submitbutton" value="ical"  class="btn btn-floating" style="background-color:#826AED;"
+                            data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Get a Calendar file of your upcoming Canvas assignments!">
+                                <i class="fas fa-calendar-alt" id="calendaricon"></i>
+                              </button>
+                        </div>
+          
+                      </div>
+          
+        
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <p class='text-center'><strong>To-Do List</strong></p>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col text-center">
+                            <button type="submit" id="submitbutton2" name="submitbutton" value="todolist"  class="btn btn-floating" style="background-color:#C879FF;"
+                            data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Generate a To-Do List of your upcoming Canvas assignments!">
+                                <i class="fas fa-clipboard-list" id="clipboardicon"></i>
+                              </button>
+                        </div>
+          
+                      </div>
+          
+        
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <p class='text-center'><strong>Study Buddies</strong></p>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col text-center">
+                            <button type="submit" id="submitbutton3" name="submitbutton" value="studybuddy"  class="btn btn-floating" style="background-color:#FFB7FF;"
+                            data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Find out who you share the most classes with! This might take a few seconds.">
+                                <i class="fas fa-user-friends" id="friendsicon"></i>
+                              </button>
+                        </div>
+          
+                      </div>
+                      </div>              
+          
+            </div>
+
+        </div>
+
+        <div class="col-1"></div>
+        
+      </div>
+
+
+          <div class="row mt-3" id="progressbarrow">
+              <div class="col-1"></div>
+              <div class="col-10">
+                  <div class="progress" id="progress" style="display:none; height:8px;">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressbar" role="progressbar" style="width: 0%"></div>
+                  </div>
+              </div>
+              <div class="col-1"></div>
+          </div>
+
+          <div class="row mt-1" id="slowloadrow">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="text-center" id="slowload">
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+<!--</form> -->
+
+
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+  </body>
+</html>
