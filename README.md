@@ -15,6 +15,21 @@ The Extension makes a ```POST``` request to the Flask server (hosted at https://
 
 <img src="https://github.com/SukhmKang/canvas-assistant/blob/main/Screenshots/Screen%20Shot%202022-03-21%20at%202.53.09%20PM.png" width="600">
 
+## Authors & Contact Information
+
+This project was authored by **Sukhm Kang** and **Ishan Balakrishnan**.
+
+**Sukhm Kang**\
+Mathematics @ The University of Chicago\
+https://www.linkedin.com/in/sukhm-kang
+
+
+**Ishan Balakrishnan**\
+Computer Science & Business @ University of California, Berkeley\
+https://www.linkedin.com/in/ishanbalakrishnan
+
+Feel free to reach out to either one of us by email @ ishan.balakrishnan(at)berkeley.edu or sukhmkang(at)uchicago.edu! 
+
 ## Acknowledgements
 
 This project made extensive use of the Free version of ```Material Design for Bootstrap``` (https://mdbootstrap.com/).
