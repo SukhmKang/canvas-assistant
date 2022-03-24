@@ -6,20 +6,6 @@ from datetime import datetime,timedelta
 import pytz
 import pandas as pd
 
-#Canvas website you are using
-API_URL = "https://canvas.uchicago.edu"
-
-#User-generated API Key (can access this under user profile)
-API_KEY = "2349~IYqEsKDHOn6s3i8mJZf5NYO1KhOXIuYKvpoCPz69Nw74UKG3nLv7pXT7cT341Wlb"
-
-ISHAN_API = "1072~WHCbODVo8f39Z21k69bV8uw1rk22VbkonmwAUnm8r4pP6dqxk0zEpWAp40zMmmtr"
-ISHAN_URL = "https://bcourses.berkeley.edu"
-SAI_API = "1116~MkfdhO2F0r7tL5LRU37xj8vvt73fXrrAa5H1iTRKjRLPN9bEvlH2QmJqqtHZNV8L"
-SAI_URL = "https://canvas.brown.edu"
-NORTHEASTERNAPI = "14523~Lq5ROkPN0gHg9rZocytHViorq8mYqDxp4KkAc2rTIMOTVvi9H8GPMFrjZTVMzPpR"
-CORNELLAPI = "9713~YPLxPI0wn0gQVPbD1HcoimzuqI3ev4MvW8f5lp7bprjka8bwEpjHykB0Bhnmy9hy"
-irvineapi = "4407~tP2UY0qqN7l2ulqFmkl2pAhfREGR3DGic5AFBSnLq5pQywh6qUvdZToFb9FdQcp6"
-
 def make_calendar(APIKEY,URL):
     #Initializing calendar
     cal = ical.Calendar()
