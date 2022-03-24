@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Canvas Extension</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="static/canvas-logo-1024x1020 (1).png" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="static/css/mdb.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <style>
+        
+        #applecal {
+            height: 30px;
+        }
+        #googlecal {
+            height: 30px;
+        }
+                
+        #progress {
+            transition: 0.1s ease-in;
+        }
+
+        #submitbutton1 .tooltip-inner {
+            background-color: rgb(83, 83, 83);
+            color: rgb(252, 252, 252);
+        }
+                
+        
+        </style>
+        
+
+        {% if message|length > 0 %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endif %}
+
+
+
+  </head>
+  <body>
+    <!-- Start your project here-->
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+  
+              const submitbutton1 = document.getElementById("submitbutton1")
+              const submitbutton2 = document.getElementById("submitbutton2")
+              const submitbutton3 = document.getElementById("submitbutton3")
+              const progressbar = document.getElementById('progressbar')
+              const progressbarrow = document.getElementById('progressbarrow')
+              const progress = document.getElementById('progress')
+              const slowloadrow = document.getElementById('slowload')
+
+              submitbutton1.onclick = () => {
+               
+                if (progress.style.display == 'none') {
+                    progress.style.display = 'flex';
+                }
+              
+                setTimeout(() => {  
+                progressbar.style.width = '0%';
+                progressbar.style.backgroundColor = '#EF798A';
+
+             }, .1);
+
+             setTimeout(() => {  
+
+                 for (let i=0;i<100.001;i += 0.001) {
+             progressbar.style.width = i.toString() + '%';
+             }
+
+            }, 400);
+              
+              }
+                       
+              submitbutton2.onclick = () => {
+               
+               if (progress.style.display == 'none') {
+                   progress.style.display = 'flex';
+               }
+             
+               setTimeout(() => {  
+                progressbar.style.width = '0%';
+                progressbar.style.backgroundColor = '#F7A9A8';
+
+             }, .1);
+
+             setTimeout(() => {  
+
+                 for (let i=0;i<100.001;i += 0.001) {
+             progressbar.style.width = i.toString() + '%';
+             }
+
+            }, 400);
+
+             
+             }
+
+             submitbutton3.onclick = () => {
+               
+               if (progress.style.display == 'none') {
+                   progress.style.display = 'flex';
+               }
+             
+               setTimeout(() => {  
+               progressbar.style.width = '0%';
+               progressbar.style.backgroundColor = '#087CA7';
+
+            }, .1);
+
+            setTimeout(() => {  
+                for (let i=0;i<100.001;i += 0.001) {
+            progressbar.style.width = i.toString() + '%';
+            }
+            slowloadrow.innerHTML = "Fetching your classmates - this might take a few seconds..."
+           }, 400);
+           
+           setTimeout(() => {  
+            slowloadrow.innerHTML = ""
+           }, 5000);
+
+             }
+
+
+
+         });
+          </script>
+
+          
+  
+
+      
+      <form action="/" method="post">
+      
+        <div class="row">
+            
+            <div class="col-md-4 col-sm-2 col-xs-2"></div>
+            <div class="col-md-4 col-sm-8 col-xs-8">
+                <div class="row"><strong>Required Fields</strong></div>
+            </div>
+            <div class="col-md-4 col-sm-2 col-xs-2"></div>
+        </div>
+
+
+      <div class="row mt-2">
+          <div class="col-md-4 col-sm-2 col-xs-2"></div>
+          <div class="col-md-4 col-sm-8 col-xs-8">
+              <select name="university" class="form-select">
+                  <option selected disabled>Select Your School</option>
+                  {% for school in college_dict.keys() %}
+                  <option value="{{school}}">{{school}}</option>
+                  {% endfor %}
+                </select>        
+          </div>
+          <div class="col-md-4 col-sm-2 col-xs-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+        <div class="col-md-4 col-sm-8 col-xs-8">
+            <div class="row"><small>Don't see your school? <a href="https://learninganalytics.ubc.ca/for-students/canvas-api/" target="_blank">Send us an email.</a></small></div>
+        </div>
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+    </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+        <div class="col-md-4 col-sm-8 col-xs-8">
+          <div class="form-outline mb-1">
+            <i class="fas fa-exclamation-circle trailing"></i>
+              <input type="text" name="api" id="api" autocomplete="off" class="form-control form-icon-trailing" />
+              <label class="form-label" for="api">Enter Canvas API Key</label>
+            </div>
+                    </div>
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+        <div class="col-md-4 col-sm-8 col-xs-8">
+            <div class="row"><small>Having trouble finding your API key? <a href="https://learninganalytics.ubc.ca/for-students/canvas-api/" target="_blank">Click here.</a></small></div>
+        </div>
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+    </div>
+
+    
+
+    <div class="row">
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+        <div class="col-md-4 col-sm-8 col-xs-8">
+            <hr>
+        </div>
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+    </div>
+
+
+    <div class="row">
+            
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+        <div class="col-md-4 col-sm-8 col-xs-8">
+            <div class="row"><strong>Additional Fields</strong></div>
+        </div>
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+    </div>
+
+
+
+      <div class="row mt-2">
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+        <div class="col-md-4 col-sm-8 col-xs-8">
+            <select name="timezone" class="form-select">
+                <option selected disabled>Select Your Timezone</option>
+                {% for time in timezones.keys() %}
+                <option value="{{time}}">{{time}}</option>
+                {% endfor %}
+              </select>        
+        </div>
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+        <div class="col-md-4 col-sm-8 col-xs-8">
+
+            <label class="form-label" for="customRange2"><strong> Number of Classes Currently Enrolled In</strong></label>
+            <div class="range">
+              <input type="range" name="classrange" class="form-range" min="2" max="6" id="customRange2" />
+            </div>
+     
+        </div>
+        <div class="col-md-4 col-sm-2 col-xs-2"></div>
+    </div>
+
+
+
+
+      <div class="row">
+          <div class="col-md-4 col-sm-2 col-xs-2"></div>
+          <div class="col-md-4 col-sm-8 col-xs-8">
+              <hr>
+          </div>
+          <div class="col-md-4 col-sm-2 col-xs-2"></div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-4 col-sm-2 col-xs-2"></div>
+          <div class="col-md-4 col-sm-8 col-xs-8">
+              <div class="row">
+              <div class="col-md-4 ">
+                  <div class="row">
+                  <p class='text-center'><strong>Calendar (.ics)</strong></p>
+                  </div>
+
+                  <div class="row">
+                    <div class="col text-center">
+                        <button type="submit" id="submitbutton1" name="submitbutton" value="ical" style="background-color: #EF798A;" class="btn btn-primary btn-floating"
+                        data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Get a Calendar file of your upcoming Canvas assignments!">
+                            <i class="fas fa-calendar-alt"></i>
+                          </button>
+                    </div>
+
+                  </div>
+                  </div>
+              <div class="col-md-4 ">
+                  <div class="row">
+                  <p class='text-center'><strong>To-do List (.csv)</strong></p>
+                  </div>
+                  <div class="row">
+                    <div class="col text-center">
+                        <button type="submit" id="submitbutton2" name="submitbutton" value="todolist" style="background-color: #F7A9A8;" class="btn btn-danger btn-floating"
+                        data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Generate a To-do List of your upcoming Canvas assignments!">
+                            <i class="fas fa-clipboard-list"></i>
+                          </button>
+                    </div>
+
+                  </div>
+
+              </div>
+              <div class="col-md-4 ">
+                  <div class="row">
+                  <p class='text-center'><strong>Study Buddies</strong></p>
+                  </div>
+                  <div class="row">
+                    <div class="col text-center">
+                        <button type="submit" id="submitbutton3" name="submitbutton" value="studybuddy" style="background-color: #087CA7;" class="btn btn-primary btn-floating"
+                        data-mdb-toggle="tooltip" data-mdb-trigger="hover" data-mdb-placement="bottom" title="Find out which students you share the most classes with!">
+                            <i class="fas fa-user-friends"></i>
+                          </button>
+                    </div>
+
+                  </div>
+                  </div>              
+
+              </div>
+              </div>
+          </div>
+          <div class="row mt-3" id="progressbarrow">
+              <div class="col-md-4 col-sm-2 col-xs-2"></div>
+              <div class="col-md-4 col-sm-8 col-xs-8">
+                  <div class="progress" id="progress" style="display:none; height:8px;">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressbar" role="progressbar" style="width: 0%"></div>
+                  </div>
+              </div>
+              <div class="col-md-4 col-sm-2 col-xs-2"></div>
+          </div>
+
+          <div class="row mt-1" id="slowloadrow">
+            <div class="col-md-4 col-sm-2 col-xs-2"></div>
+            <div class="col-md-4 col-sm-8 col-xs-8">
+                <div class="text-center" id="slowload">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-2 col-xs-2"></div>
+        </div>
+
+
+          <div class="col-md-4 col-sm-2 col-xs-2"></div>
+      
+      </div>
+  </form>
+
+
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="static/js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+  </body>
+</html>
