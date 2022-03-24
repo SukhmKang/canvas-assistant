@@ -13,6 +13,8 @@ Chrome extension that automatically gets a calendar &amp; to-do list of your Can
 
 The Extension makes a ```POST``` request to the Flask server (hosted at https://canvashelper.pythonanywhere.com), which sends file data back to the Extension, which then downloads the file to the user.
 
+<img src="https://github.com/SukhmKang/canvas-assistant/blob/main/Screenshots/ezgif.com-gif-maker%20(4).gif" width="600">
+
 <img src="https://github.com/SukhmKang/canvas-assistant/blob/main/Screenshots/Screen%20Shot%202022-03-21%20at%202.53.09%20PM.png" width="600">
 
 ## Authors & Contact Information
