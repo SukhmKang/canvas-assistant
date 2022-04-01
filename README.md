@@ -4,6 +4,8 @@
 
 Chrome extension that automatically gets a calendar &amp; to-do list of your Canvas assignments and finds personalized Study Buddies for you!
 
+Now on the Google Chrome Web Store! Check it out [here](https://chrome.google.com/webstore/detail/canvas-assistant/ikabnodlfakajogmdoojofebcejmjlll?hl=en-US)!
+
 ## File summary
 
 ```/extension``` - Simply unpack this directory in the Chrome Extension developer mode to give it a try. \
