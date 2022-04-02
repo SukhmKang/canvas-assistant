@@ -6,6 +6,15 @@ Chrome extension that automatically gets a calendar &amp; to-do list of your Can
 
 **Now on the Google Chrome Web Store! Check it out [here](https://chrome.google.com/webstore/detail/canvas-assistant/ikabnodlfakajogmdoojofebcejmjlll?hl=en-US)!**
 
+## Built With
+
+**Python** (https://www.python.org/) \
+**Flask** (https://flask.palletsprojects.com/en/2.0.x/) \
+**Material Design for Bootstrap** (https://mdbootstrap.com/) \
+**Javascript** (https://www.javascript.com/) \
+**CanvasAPI** (https://canvas.instructure.com/doc/api/) \
+**Pandas** (https://pandas.pydata.org/)
+
 ## File summary
 
 ```/extension``` - Simply unpack this directory in the Chrome Extension developer mode to give it a try. \
@@ -33,7 +42,3 @@ Computer Science & Business @ University of California, Berkeley\
 https://www.linkedin.com/in/ishanbalakrishnan
 
 Feel free to reach out to either one of us by email @ ishan.balakrishnan(at)berkeley.edu or sukhmkang(at)uchicago.edu! 
-
-## Acknowledgements
-
-This project made extensive use of the Free version of ```Material Design for Bootstrap``` (https://mdbootstrap.com/).
