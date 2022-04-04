@@ -13,7 +13,8 @@ Chrome extension that automatically gets a calendar &amp; to-do list of your Can
 **Material Design for Bootstrap** (https://mdbootstrap.com/) \
 **Javascript** (https://www.javascript.com/) \
 **CanvasAPI** (https://canvas.instructure.com/doc/api/) \
-**Pandas** (https://pandas.pydata.org/)
+**Pandas** (https://pandas.pydata.org/) \
+**iCalendar API** (https://pypi.org/project/icalendar/)
 
 ## File summary
 
