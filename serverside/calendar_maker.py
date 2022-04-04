@@ -261,8 +261,3 @@ def studybuddies(APIKEY,URL, numCourses):
     if len(studybuddies) == 0:
         return False, "There are no common users between your courses.", ""
     return True, studybuddies.to_csv(index=False), username
-
-kev_api = '1072~8FBszF2Ao4PY3jKEpdz4oTmNudLdpU0haEhAU26KbcXfn2iSpjRErzSzm4HyDsPx'
-
-def debugging(api,url):
-    return
